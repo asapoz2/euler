@@ -1,0 +1,9 @@
+﻿  euler.cpp
+c:\users\asapo\onedrive\documents\visual studio 2015\projects\consoleapplication2\consoleapplication2\euler.cpp(20): warning C4018: '<': signed/unsigned mismatch
+c:\users\asapo\onedrive\documents\visual studio 2015\projects\consoleapplication2\consoleapplication2\euler.cpp(44): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+c:\users\asapo\onedrive\documents\visual studio 2015\projects\consoleapplication2\consoleapplication2\euler.cpp(44): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
+c:\users\asapo\onedrive\documents\visual studio 2015\projects\consoleapplication2\consoleapplication2\euler.cpp(156): warning C4018: '<': signed/unsigned mismatch
+c:\users\asapo\onedrive\documents\visual studio 2015\projects\consoleapplication2\consoleapplication2\euler.cpp(197): warning C4018: '<': signed/unsigned mismatch
+c:\users\asapo\onedrive\documents\visual studio 2015\projects\consoleapplication2\consoleapplication2\euler.cpp(283): warning C4018: '<': signed/unsigned mismatch
+c:\users\asapo\onedrive\documents\visual studio 2015\projects\consoleapplication2\consoleapplication2\euler.cpp(298): warning C4018: '<': signed/unsigned mismatch
+  ConsoleApplication2.vcxproj -> C:\Users\asapo\onedrive\documents\visual studio 2015\Projects\ConsoleApplication2\Debug\ConsoleApplication2.exe
