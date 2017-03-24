@@ -422,6 +422,7 @@ void pushbackconcatarrays(vector<struct frac> current, vector<vector<struct frac
 
 void problem264_take1() {
 	const int maxperim = 50;
+
 	for (int i = 0; i < maxperim; i++) {
 		for (int j = 0; j < maxperim; j++) {
 			int distsquared = (i*i) + (j*j);
@@ -497,11 +498,11 @@ std::map<int, int> roots;
 
 int maxfoundroot = 0;
 int findsquare(int input, bool* flag) {
-	std::map<int, int>::iterator found = roots.find(input);
+	/*std::map<int, int>::iterator found = roots.find(input);
 	if (found != roots.end()) {
 		*flag = true;
 		return (*found).second;
-	}
+	}*/
 	int upper = input / 2;
 	int lower = 1;
 	int guess;
@@ -515,23 +516,46 @@ int findsquare(int input, bool* flag) {
 		else {
 			lower = guess;
 		}
-		roots.insert(std::make_pair(guesssquared, guess));
+		//roots.insert(std::make_pair(guesssquared, guess));
 	}
 	*flag = (lower*lower) == input ;
 	return lower;
 	//use binary search to find spot and fill set with guesses
 	//return spot
 }
-
+//const int maxperim = 50;
+const int maxperim = 1000;
+int last5 = 0;
+int total = 0;
 void problem264() {
+	const int maxradius = maxperim/2;
+	const int maxradiussq = maxradius*maxradius;
+	int firstsquare = ((-4 - 5)*(-4 - 5)) + ((3)*(3 ));
+	int secondsquare = ((-4 - 4)*(-4 - 4)) + ((6)*(6));
+	int thirdsquare = (1) + (9);
+	addRootToTotal(firstsquare, secondsquare, thirdsquare, true);
+	firstsquare = ((-3 - 5)*(-3 - 5)) + (16);
+	secondsquare = ((-3 - 3)*(-3 - 3)) + (64);
+	thirdsquare = (4) + (16);
+	addRootToTotal(firstsquare, secondsquare, thirdsquare, true);
+	firstsquare = 50;
+	secondsquare = 100;
+	thirdsquare = 50;
+	addRootToTotal(firstsquare, secondsquare, thirdsquare, false);
+
 	roots.insert(std::make_pair(0, 0));
-	const int maxperim = 50;
-	for (int i = 0; i < maxperim; i++) {
-		for (int j = 0; j < maxperim; j++) {
+
+	//can split searching along line y=x
+	for (int i = 0; i < maxradius; i++) {
+		cout << "i:" << i << endl;
+		for (int j = 0; j < maxradius; j++) {
 			int distsquared = (i*i) + (j*j);
-			if (i == 5) {
-				cout << endl;
+			if (distsquared > maxradiussq) {
+				break;
 			}
+			/*if (i == 5) {
+				cout << endl;
+			}*/
 			//for each x starting at -r to 0 (at least one triangle
 			//of the pair will be in the top left hemisphere)
 			//, check if r2-x2 is an integer square
@@ -575,7 +599,7 @@ void problem264() {
 				int x3 = b2.top *j - b1.top *q;
 				int bottom = (m1.top*q - m2.top *j);
 				int y3;
-				if (x3==0) {
+				if (x3 == 0) {
 					y3 = 0;
 				}
 				else {
@@ -590,17 +614,80 @@ void problem264() {
 					continue;
 				}
 				y3 /= j;
-				
-				if (y3*y3 + x3*x3 != distsquared || (x3==i && y3==j)) continue;
-				cout << "found point: " << i << "," << j << ", and " << 
-					p << ", " << q << ", and " << x3<<", "<< y3<< endl;
+
+				if (y3*y3 + x3*x3 != distsquared || (x3 == i && y3 == j)) continue;
+				cout << "found point: " << i << "," << j << ", and " <<
+					p << ", " << q << ", and " << x3 << ", " << y3 << endl;
 				//figure out perimeter
 				//figure out the flipped versions
 				//figure out what to do with first points
-				
-				
+
+				//first point 
+				int firstsquare = ((i - p)*(i - p)) + ((j - q)*(j - q));
+				int secondsquare = ((i - x3)*(i - x3)) + ((j - y3)*(j - y3));
+				int thirdsquare = ((p - x3)*(p - x3)) + ((q - y3)*(q - y3));
+				bool addtwice = j != 0 || x3 != p;
+				addRootToTotal(firstsquare, secondsquare, thirdsquare, addtwice);
 			}
 
 		}
 	}
+	cout << "totals: " << total << "." << last5 << endl;
+}
+
+
+
+const int tenfactor = 1000000;
+void addRootToTotal(int firstsquare, int secondsquare, int thirdsquare, bool addtwice) {
+	int ctotal = 0;
+	int c5 = 0;
+	int root = 0;
+	int five = 0;
+	findsquareto5(firstsquare, &root, &five);
+	ctotal += root;
+	c5 += five;
+	root = 0;
+	five = 0;
+	findsquareto5(secondsquare, &root, &five);
+	ctotal += root;
+	c5 += five;
+	findsquareto5(thirdsquare, &root, &five);
+	ctotal += root;
+	c5 += five;
+
+
+
+	if (ctotal < maxperim || (ctotal == maxperim && c5 == 0)) {
+		cout << "was good point" << endl;
+		if (addtwice) {
+			ctotal *= 2;
+			c5 *= 2;
+		}
+		last5 += c5;
+		if (last5 > tenfactor) {
+			int extraint = last5 / tenfactor;
+			last5 -= extraint*tenfactor;
+			total += extraint;
+		}
+		total += ctotal;
+	}
+}
+
+void findsquareto5(int input, int* tot, int* five) {
+	// use earlier fun to find int below
+	// square it and use long division to find decimal square that's left in int form
+	// use same earlier fun to find last five?
+	bool flag = false;
+	int solid = findsquare(input, &flag);
+	*tot = solid;
+	if (flag) {
+		*five = 0;
+		return;
+	}
+	//solid is integer part 
+	//rest can use double
+	double rest = (double)input / (solid*solid);
+	double rootrest = (sqrt(rest)*solid) - solid;
+	rootrest *= tenfactor;
+	*five = rootrest;
 }

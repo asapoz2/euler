@@ -1,13 +1,16 @@
-﻿  ConsoleApplication2.cpp
+﻿  stdafx.cpp
+  algos.cpp
+  ConsoleApplication2.cpp
   euler.cpp
 euler.cpp(45): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
 euler.cpp(45): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
 euler.cpp(371): warning C4244: 'return': conversion from '__int64' to 'int', possible loss of data
-euler.cpp(454): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-euler.cpp(462): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+euler.cpp(455): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+euler.cpp(463): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+euler.cpp(691): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
   Generating code
-  88 of 670 functions (13.1%) were compiled, the rest were copied from previous compilation.
-    86 functions were new in current compilation
-    32 functions had inline decision re-evaluated but remain unchanged
+  166 of 169 functions (98.2%) were compiled, the rest were copied from previous compilation.
+    6 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code
-  ConsoleApplication2.vcxproj -> C:\Users\asapo\onedrive\documents\visual studio 2015\Projects\ConsoleApplication2\x64\Release\ConsoleApplication2.exe
+  ConsoleApplication2.vcxproj -> D:\Alex\Documents\git\euler\ConsoleApplication2\x64\Release\ConsoleApplication2.exe

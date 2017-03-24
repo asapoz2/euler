@@ -1,7 +1,8 @@
 ﻿  euler.cpp
-c:\users\asapo\onedrive\documents\visual studio 2015\projects\consoleapplication2\consoleapplication2\euler.cpp(45): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\asapo\onedrive\documents\visual studio 2015\projects\consoleapplication2\consoleapplication2\euler.cpp(45): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
-c:\users\asapo\onedrive\documents\visual studio 2015\projects\consoleapplication2\consoleapplication2\euler.cpp(371): warning C4244: 'return': conversion from '__int64' to 'int', possible loss of data
-c:\users\asapo\onedrive\documents\visual studio 2015\projects\consoleapplication2\consoleapplication2\euler.cpp(454): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\asapo\onedrive\documents\visual studio 2015\projects\consoleapplication2\consoleapplication2\euler.cpp(462): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-  ConsoleApplication2.vcxproj -> C:\Users\asapo\onedrive\documents\visual studio 2015\Projects\ConsoleApplication2\x64\Debug\ConsoleApplication2.exe
+d:\alex\documents\git\euler\consoleapplication2\consoleapplication2\euler.cpp(45): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+d:\alex\documents\git\euler\consoleapplication2\consoleapplication2\euler.cpp(45): warning C4244: 'initializing': conversion from 'double' to 'const int', possible loss of data
+d:\alex\documents\git\euler\consoleapplication2\consoleapplication2\euler.cpp(371): warning C4244: 'return': conversion from '__int64' to 'int', possible loss of data
+d:\alex\documents\git\euler\consoleapplication2\consoleapplication2\euler.cpp(455): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+d:\alex\documents\git\euler\consoleapplication2\consoleapplication2\euler.cpp(463): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+d:\alex\documents\git\euler\consoleapplication2\consoleapplication2\euler.cpp(691): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+  ConsoleApplication2.vcxproj -> D:\Alex\Documents\git\euler\ConsoleApplication2\x64\Debug\ConsoleApplication2.exe

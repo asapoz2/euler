@@ -26,3 +26,5 @@ int NumDigits(int x);
 int bigten(int x);
 void problem264();
 int findsquare(int input, bool* flag);
+void findsquareto5(int input, int* tot, int* five);
+void addRootToTotal(int firstsquare, int secondsquare, int thirdsquare, bool addtwice);
